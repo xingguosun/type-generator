@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,51 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@layer base {
+  [type='text'],
+  select {
+    @apply  font-medium border-none w-28 rounded-md shadow-sm p-0 px-2 focus:outline-none focus:bg-green-50 focus:ring-green-50;
+  }
+  pre {
+    @apply rounded-lg;
+  }
+}
+
+@layer components {
+  .type-item {
+    @apply border-opacity-70 border-l-2 border-pink-500 border-b-2 py-1 rounded-bl-sm;
+  }
+  .btn {
+    @apply cursor-pointer transition duration-500 ease-in-out transform hover:scale-105;
+  }
+  .btn-mini {
+    @apply inline-flex ml-1 h-5 w-5 float-right;
+  }
+  .btn-small {
+    @apply h-8 w-8;
+  }
+  .btn-green {
+    @apply text-green-500;
+  }
+  .btn-green:hover {
+    @apply text-green-800;
+  }
+
+  .btn-blue {
+    @apply text-blue-500;
+  }
+  .btn-blue:hover {
+    @apply text-blue-800;
+  }
+  .btn-red {
+    @apply text-red-500;
+  }
+  .btn-red:hover {
+    @apply text-red-800;
+  }
+  .group {
+    @apply bg-red-300;
+  }
 }
