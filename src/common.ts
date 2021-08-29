@@ -1,10 +1,26 @@
 /**
  * Create a new property with id, name, parent and type (string as default).
- * @param parent the id of the item to insert into.
+ * @param parentId the id of the item to insert into.
  * @returns a new property
  */
-export function newProperty(parent: string): Property {
-    return { id: `id ${Math.floor(Math.random() * 1000)}`, name: '', parent: parent, type: 'String' };
+export function newProperty(parentId: string): Property {
+    return { id: `id ${Math.floor(Math.random() * 1000)}`, name: '', parent: parentId, type: 'String' };
+}
+
+export function modifyProperty(propList: Array<Property>, property:Property) : Array<Property> {
+    // let updatedType = propList.map((prop) => (
+    //     prop.id === property.id ?  { ...prop, name: property.name, type: property.type } : property
+    // ));
+    const index = propList.findIndex((p) => p.id == property.id);
+    
+    const isTypeChanged = propList[index]?.type === property.type;
+    propList[index] = { ...propList[index], name: property.name, type: property.type };
+    propList =  isTypeChanged ? propList.filter((prop) => prop.parent !== property.id) : propList;
+
+    if (isTypeChanged && property.type === 'Array') {
+        propList.push(newProperty(property.id));
+    }
+    return propList;
 }
 export function getSubProperties(list: Array<Property>, property?: Property): Array<Property> {
     const id = property ? property.id : undefined;

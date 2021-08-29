@@ -2,47 +2,47 @@ import React, { useState } from 'react';
 import './App.css';
 import Type from './components/Type';
 import Code from './components/Code';
-import { newProperty } from './common';
+import { modifyProperty, newProperty } from './common';
 
+/**
+ * Create a customized type and insert/delete/modify different types of properties.
+ * An object property can consist of multiple sub-properties.
+ * 
+ * @returns the layout contains type management and code display
+ */
 function App(): JSX.Element {
 
-  const [customType, setcustomType] = useState<Array<Property>>([{
-    id: 'id-0',
-    name: '',
-    type: 'String'
-  }]);
-  
   /**
-   * 
-   * @param id 
+   * Define the custom type with initialized varibles and store it in the state.
    */
-  const addProperty: AddProperty = (id?: string) => {
-    setcustomType([...customType, newProperty(id ?? customType[0].id)]);
-  }
-  const deleteProperty: DeleteProperty = (id: string) => {
-    setcustomType(customType.filter((property) => property.id !== id));
-  }
-  const changeProperty: ChangeProperty = (selected: Property) => {
-    let isChangeClass = false;
-    let updatedClass = customType.map((property) => {
-      if (property.id === selected.id) {
-        if (property.type !== selected.type) isChangeClass = true;
-        return { ...property, name: selected.name, class: selected.type };
-      } else {
-        return property;
-      }
-    });
-    if (isChangeClass) {
-      updatedClass = updatedClass.filter((property) => property.parent !== selected.id);
-    }
+  const initType : Property= { id: 'id-0', name: '', type: 'String' };
+  const [customType, setcustomType] = useState<Array<Property>>([initType]);
 
-    if (isChangeClass && selected.type === 'Array') {
-      updatedClass.push(newProperty(selected.id));
-    }
-    setcustomType(updatedClass);
+  /**
+   * Add a property into another property and update the state.
+   * @param parentId the id of the property to be inserted.
+   */
+  const addProperty: AddProperty = (parentId?: string) => {
+    setcustomType([...customType, newProperty(parentId ?? initType.id)]);
+  }
+  /**
+   * Delete a property and update the state
+   * @param id the id of the property to be deleted
+   */
+  const deleteProperty: DeleteProperty = (id: string) => {
+    setcustomType(customType.filter(property => property.id !== id));
+  }
+  /**
+   * Modify a property and udpate the state
+   * @param selected the selected property needs to be changed
+   */
+  const changeProperty: ChangeProperty = (selected: Property) => {
+    setcustomType(modifyProperty(customType, selected));
   };
 
-
+  /**
+   * return a layout with type management and code display
+   */
   return (
     <div className="App flex justify-center">
       <div className="half-block">
