@@ -3,7 +3,7 @@ type Property = {
     id: string,
     parent?: string,
     name: string,
-    class: Type,
+    type: Type,
     depth?: number
 }
 type AddProperty = (id?: string) => void;

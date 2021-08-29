@@ -15,16 +15,16 @@ const Property: React.FC<PropertyProps> = ({ property, addProperty, changeProper
         changeProperty({ ...property, name: e.target.value });
     }
     const handleClassTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        changeProperty({ ...property, class: e.target.value as Type });
+        changeProperty({ ...property, type: e.target.value as Type });
     }
 
     return (
         <div style={{ paddingLeft: `${property.depth ? property.depth * 50 : 0} px` }}>
             <div className='type-item'>
                 <TailwindInput type='text' value={property.name} onChange={handleNameChange} placeholder='name...' /> :
-                <TailwindSelect value={property.class} onChange={handleClassTypeChange} options={ClassTypeOptions} />
+                <TailwindSelect value={property.type} onChange={handleClassTypeChange} options={ClassTypeOptions} />
 
-                { property.class === 'Object' ? <AddButton onClick = { () => addProperty(property.id)} /> : ''}
+                { property.type === 'Object' ? <AddButton onClick = { () => addProperty(property.id)} /> : ''}
                 { property.parent !== undefined ? <DeleteButton onClick = { () => deleteProperty(property.id)} /> : '' }
             </div>
         </div>

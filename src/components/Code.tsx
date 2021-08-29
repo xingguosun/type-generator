@@ -4,12 +4,12 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface CodeProps {
-    customClass: Array<Property>;
+    customType: Array<Property>;
 }
 const style = vscDarkPlus | 0;
 
-const Code: React.FC<CodeProps> = ({ customClass } : CodeProps) => {
-    const code: string = getCodeString(customClass);
+const Code: React.FC<CodeProps> = ({ customType } : CodeProps) => {
+    const code: string = getCodeString(customType);
     return (
         <SyntaxHighlighter language="typescript" style={style}>
             {code}

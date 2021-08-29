@@ -2,17 +2,17 @@ import React from "react";
 import { getSubProperties } from "../common";
 import Property from "./Property";
 
-interface CustomClassProps {
-    customClass: Array<Property>;
+interface CustomTypeProps {
+    customType: Array<Property>;
     addProperty: AddProperty;
     changeProperty: ChangeProperty;
     deleteProperty: DeleteProperty;
 }
 
-const CustomClass: React.FC<CustomClassProps> = ({ customClass, addProperty, changeProperty, deleteProperty } : CustomClassProps) => {
+const CustomClass: React.FC<CustomTypeProps> = ({ customType, addProperty, changeProperty, deleteProperty } : CustomTypeProps) => {
     return <div>
         {
-            getSubProperties(customClass).map((property, index) => (
+            getSubProperties(customType).map((property, index) => (
                     <Property key={index} property={property} addProperty={addProperty} deleteProperty={deleteProperty} changeProperty={changeProperty} />
             ))
         }

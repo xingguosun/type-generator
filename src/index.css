@@ -61,4 +61,7 @@ code {
   .group {
     @apply bg-red-300;
   }
+  .half-block {
+    @apply w-3/6 max-w-lg;
+  }
 }
