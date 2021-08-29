@@ -34,7 +34,7 @@ function App(): JSX.Element {
   }
   /**
    * Modify a property and udpate the state
-   * @param selected the selected property needs to be changed
+   * @param selected the selected property to be modified
    */
   const changeProperty: ChangeProperty = (selected: Property) => {
     setcustomType(modifyProperty(customType, selected));

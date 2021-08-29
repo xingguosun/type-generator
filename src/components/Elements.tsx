@@ -1,3 +1,6 @@
+/**
+ * Customized elements, such as input, select and button
+ */
 import React from "react";
 import { MinusCircleIcon, PlusCircleIcon } from '@heroicons/react/solid'
 

@@ -9,7 +9,7 @@ interface CustomTypeProps {
     deleteProperty: DeleteProperty;
 }
 
-const CustomClass: React.FC<CustomTypeProps> = ({ customType, addProperty, changeProperty, deleteProperty } : CustomTypeProps) => {
+const CustomType: React.FC<CustomTypeProps> = ({ customType, addProperty, changeProperty, deleteProperty } : CustomTypeProps) => {
     return <div>
         {
             getSubProperties(customType).map((property, index) => (
@@ -20,4 +20,4 @@ const CustomClass: React.FC<CustomTypeProps> = ({ customType, addProperty, chang
 };
 
 
-export default CustomClass;
+export default CustomType;
