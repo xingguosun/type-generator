@@ -22,12 +22,12 @@ interface ButtonProps {
 
 export const TailwindInput: React.FC<InputProps> = ({ type, value, onChange, placeholder = '' } : InputProps) => {
     return (
-            <input className="text-blue-800" type={type} value={value} onChange={onChange} placeholder={placeholder} />
+            <input aria-label="input name" className="text-blue-800" type={type} value={value} onChange={onChange} placeholder={placeholder} />
     )
 }
 export const TailwindSelect: React.FC<SelectProps> = ({ value, onChange, options } : SelectProps) => {
     return (
-        <select className="text-green-600 cursor-pointer bg-none" value={value} onChange={onChange}>
+        <select aria-label="select type" className="text-green-600 cursor-pointer bg-none" value={value} onChange={onChange}>
             {options.map((type, index) => {
                 return <option key={index} value={type}>{type}</option>
             })}
@@ -36,12 +36,12 @@ export const TailwindSelect: React.FC<SelectProps> = ({ value, onChange, options
 }
 export const AddButton: React.FC<ButtonProps> = ({onClick} : ButtonProps) => {
     return (
-        <PlusCircleIcon onClick={onClick} className="btn btn-mini btn-green" />
+        <PlusCircleIcon role="button" aria-label="add property" onClick={onClick} className="btn btn-mini btn-green" />
     )
 }
 
 export const DeleteButton: React.FC<ButtonProps> = ({onClick} : ButtonProps) => {
     return (
-        <MinusCircleIcon onClick={onClick} className="btn btn-mini btn-red" />
+        <MinusCircleIcon role="button"  aria-label="add property" onClick={onClick} className="btn btn-mini btn-red" />
     )
 }

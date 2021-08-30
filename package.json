@@ -22,9 +22,11 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "NODE_OPTIONS=--unhandled-rejections=warn craco test",
     "lint": "eslint --ext .ts --ext .tsx src",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +54,12 @@
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.24.0",
     "postcss": "^7",
+    "react-styleguidist": "^11.1.7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+    ]
   }
 }

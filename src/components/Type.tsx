@@ -9,6 +9,9 @@ interface CustomTypeProps {
     deleteProperty: DeleteProperty;
 }
 
+/**
+ * Get sorted property list and iterate them with Property component
+ */
 const CustomType: React.FC<CustomTypeProps> = ({ customType, addProperty, changeProperty, deleteProperty } : CustomTypeProps) => {
     return <div>
         {
