@@ -3,6 +3,11 @@
 A tool of generating TypeScritp type. 
 
 The `useState` hook is used in this project to manage states instead of redux because `useState` is suitable for small projects. The Tailwind and code highlighter help to beautify the UI. To ensure the code quality, eslint is configured and testings are implemented as well. And the continuous integration is based on GitHub Actions.
+
+## Example
+
+<img width="1012" alt="generator-example" src="https://user-images.githubusercontent.com/7005575/131357377-8d69dfdb-7bcf-4424-a668-1a9cc3052725.png">
+
 ## Installation
 - Run `npm install` or `yarn` to install dependencies.
 - `npm start` or `yarn start` to run this application in the development mode. Open http://localhost:3000 to view it in the browser.
