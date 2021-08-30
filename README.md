@@ -26,7 +26,8 @@ type-generator
 
 
 ```
-
+## Doc
+The doc is created via `React Styleguidist`, run `yarn styleguide` or just check the files under the folder `docs`.
 ## Testing
 Some essential tests are conducted based on `React testing library` in the file `App.test.tsx`.
 ## CI
